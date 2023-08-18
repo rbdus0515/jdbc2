@@ -12,7 +12,7 @@ import edu.kh.jdbc.model.dao.TestDAO;
 import edu.kh.jdbc.model.vo.TestVO;
 
 public class TestService {
-	// Service : 비즈니스 로직(데이터 가공, 트랜잭샨 제어) 처리
+	// Service : 비즈니스 로직(데이터 가공, 트랜잭션 제어) 처리
 	// -> 실제 프로그램이 제공하는 기능을 모아놓은 클래스
 	
 	// 하나의 service 메서드에서 n개의 DAO 메서드를 호출하여
