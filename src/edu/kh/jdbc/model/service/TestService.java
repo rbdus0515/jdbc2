@@ -46,7 +46,7 @@ public class TestService {
 	 * @param vo1
 	 * @param vo2
 	 * @param vo3
-	 * @return
+	 * @return result
 	 */
 	public int insert(TestVO vo1, TestVO vo2, TestVO vo3) {
 		
@@ -74,6 +74,26 @@ public class TestService {
 		}
 		
 		return result; // insert 3회 결과 반환
+	}
+
+	/** 제목, 내용 수정 Service
+	 * @param vo
+	 * @return result
+	 */
+	public int update(TestVO vo) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		
+		int result = dao.update(conn, vo);
+		
+		if(result > 0) commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		
+		return result;
 	}
 
 }

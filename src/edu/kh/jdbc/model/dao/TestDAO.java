@@ -76,6 +76,39 @@ public class TestDAO {
 
 	}
 
+
+	/** 번호가 일치하는 행 제목, 내용 수정 DAO
+	 * @param conn
+	 * @param vo
+	 * @return result
+	 */
+	public int update(Connection conn, TestVO vo) throws Exception {
+		
+		// 결과 저장용 변수
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("update");
+			
+			pstmt = conn.prepareStatement(sql); // sql탑승과 동시에 버스 만들어
+			
+			pstmt.setString(1, vo.getTestTitle());
+			pstmt.setString(2, vo.getTestContent());
+			pstmt.setInt(3, vo.getTestNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+			
+		} finally {
+			close(pstmt);
+		}
+		
+		
+		return result;
+	}
+
 }
 
 
